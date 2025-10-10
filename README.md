@@ -14,12 +14,14 @@ brew install chasemp/tap/mdsync
 ```
 
 **Features:**
-- Sync markdown files to Google Docs
-- Sync markdown files to Confluence
-- Create batch documents from multiple markdown files
-- Generate working table of contents with clickable links
-- Track sync dates and metadata in frontmatter
-- Support for both individual and batch operations
+- **Bidirectional Sync**: Sync between Google Docs, Confluence, and Markdown files
+- **Batch Document Management**: Combine multiple markdown files into single documents
+- **Table of Contents**: Generate working TOC with clickable links in Google Docs
+- **Sync Date Tracking**: Automatic timestamps for created/modified dates in frontmatter
+- **Smart Detection**: Intelligent destination detection from frontmatter metadata
+- **Live Status**: Check frozen/locked status of documents
+- **Confluence Macros**: Support for note/info/warning/tip macros
+- **Command Line**: Simple, powerful CLI interface
 
 **Usage:**
 ```bash
