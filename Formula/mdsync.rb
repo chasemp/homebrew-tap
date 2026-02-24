@@ -10,21 +10,22 @@ class Mdsync < Formula
 
   def install
     python = Formula["python@3.11"].opt_bin/"python3.11"
-    pip = Formula["python@3.11"].opt_bin/"pip3"
 
-    # Install Python dependencies into brew's python@3.11
-    system pip, "install", "google-auth>=2.0.0"
-    system pip, "install", "google-auth-oauthlib>=1.0.0"
-    system pip, "install", "google-auth-httplib2>=0.1.0"
-    system pip, "install", "google-api-python-client>=2.0.0"
-    system pip, "install", "pyyaml>=6.0"
-    system pip, "install", "python-frontmatter>=1.0.0"
-    system pip, "install", "requests>=2.28.0"
+    packages = %w[
+      google-auth>=2.0.0
+      google-auth-oauthlib>=1.0.0
+      google-auth-httplib2>=0.1.0
+      google-api-python-client>=2.0.0
+      pyyaml>=6.0
+      python-frontmatter>=1.0.0
+      requests>=2.28.0
+    ]
 
-    # Install the script
+    packages.each do |pkg|
+      system python, "-m", "pip", "install", "--break-system-packages", pkg
+    end
+
     bin.install "mdsync.py" => "mdsync"
-
-    # Make it executable
     chmod 0755, bin/"mdsync"
   end
 
