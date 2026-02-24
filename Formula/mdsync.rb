@@ -3,7 +3,7 @@ class Mdsync < Formula
   homepage "https://github.com/chasemp/mdsync"
   url "https://raw.githubusercontent.com/chasemp/mdsync/89cf5a9772fd51fa5ae1b0bf079abff5dfb7fe17/mdsync.py"
   version "0.3.0"
-  sha256 "3fe6e242583f9a0dc678c9e1d657040c3c31acf375fb24bf39b37314a65e0eaa"
+  sha256 "00c85f51a7149a5d16565e01a064e2f5eddf799d5b94a446165d0270ece59958"
   license "MIT"
 
   depends_on "python@3.11"
