@@ -10,22 +10,25 @@ class Mdsync < Formula
 
   def install
     python = Formula["python@3.11"].opt_bin/"python3.11"
+    venv = libexec/"venv"
 
-    packages = %w[
-      google-auth>=2.0.0
-      google-auth-oauthlib>=1.0.0
-      google-auth-httplib2>=0.1.0
-      google-api-python-client>=2.0.0
-      pyyaml>=6.0
-      python-frontmatter>=1.0.0
-      requests>=2.28.0
-    ]
+    # Create an isolated virtualenv so pip has a writable target
+    system python, "-m", "venv", venv
 
-    packages.each do |pkg|
-      system python, "-m", "pip", "install", "--break-system-packages", pkg
-    end
+    system "#{venv}/bin/pip", "install",
+      "google-auth>=2.0.0",
+      "google-auth-oauthlib>=1.0.0",
+      "google-auth-httplib2>=0.1.0",
+      "google-api-python-client>=2.0.0",
+      "pyyaml>=6.0",
+      "python-frontmatter>=1.0.0",
+      "requests>=2.28.0"
 
     bin.install "mdsync.py" => "mdsync"
+
+    # Point shebang at the venv Python so all deps are found
+    inreplace bin/"mdsync", "#!/usr/bin/env python3.11", "#!#{venv}/bin/python3"
+
     chmod 0755, bin/"mdsync"
   end
 
