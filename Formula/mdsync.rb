@@ -1,9 +1,9 @@
 class Mdsync < Formula
   desc "Sync between Google Docs, Confluence, and Markdown files"
   homepage "https://github.com/chasemp/mdsync"
-  url "https://raw.githubusercontent.com/chasemp/mdsync/f23ced54abe35950ca2432bdbdeafa10ee142c0f/mdsync.py"
-  version "0.3.1"
-  sha256 "1b9ba1f97307fde39ccc3dbc7d0538abab70517a667289b8ae4a8e0786f24ac2"
+  url "https://raw.githubusercontent.com/chasemp/mdsync/47dc88dca303243fe404fb18dd9828acc63f01a1/mdsync.py"
+  version "0.3.2"
+  sha256 "9846617fd221544451ceddbe5564ff6ec39e8c3acfa6717bf040f4ef2ba331ed"
   license "MIT"
 
   depends_on "python@3.11"
