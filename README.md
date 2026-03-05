@@ -40,6 +40,29 @@ mdsync --list .
 
 For more information, visit the [mdsync repository](https://github.com/chasemp/mdsync).
 
+### spina
+
+PDF to web-friendly EPUB, HTML, and PDF converter using ML-based extraction.
+
+**Installation:**
+```bash
+brew install chasemp/tap/spina
+```
+
+**Usage:**
+```bash
+# Convert a single PDF
+spina convert book.pdf -o library
+
+# Batch convert and build a browsable site
+spina batch pdfs/ -o library
+
+# Rebuild site from existing intermediate files
+spina build-site library
+```
+
+For more information, visit the [spina repository](https://github.com/chasemp/spina).
+
 ## Adding New Formulas
 
 To add a new formula to this tap:
