@@ -1,8 +1,8 @@
 class ClaudeUtils < Formula
   desc "CLI utilities for Claude Code"
   homepage "https://github.com/chasemp/claude-utils"
-  url "https://github.com/chasemp/claude-utils/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "008f7621811a60666dafb6c3b4dc2c2dc9ea967447c983de4903d68305ccc5af"
+  url "https://github.com/chasemp/claude-utils/releases/download/v0.2.0/claude-utils-0.2.0-release.tar.gz"
+  sha256 "3fdebb6925a2dab9e7a9d85b984fe64c323d169397783f2d0fa2e8d47ea243c7"
   license "AGPL-3.0-only"
 
   depends_on "python@3.12"
@@ -19,6 +19,15 @@ class ClaudeUtils < Formula
       exec "#{venv}/bin/claude-sessions" "$@"
     EOS
     chmod 0755, bin/"claude-sessions"
+
+    (share/"claude-utils").install "shell/claude-utils.zsh"
+  end
+
+  def caveats
+    <<~EOS
+      To enable shell integration (interactive session resume), add to your .zshrc:
+        source "#{opt_share}/claude-utils/claude-utils.zsh"
+    EOS
   end
 
   test do
