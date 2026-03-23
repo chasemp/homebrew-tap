@@ -2,7 +2,7 @@ class ClaudeUtils < Formula
   desc "CLI utilities for Claude Code"
   homepage "https://github.com/chasemp/claude-utils"
   url "https://github.com/chasemp/claude-utils/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "663c10c44c90183083df5e29879002dbb3f200c039b90ee149c4f63b7c63281e"
+  sha256 "008f7621811a60666dafb6c3b4dc2c2dc9ea967447c983de4903d68305ccc5af"
   license "AGPL-3.0-only"
 
   depends_on "python@3.12"
