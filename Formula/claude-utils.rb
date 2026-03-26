@@ -1,8 +1,8 @@
 class ClaudeUtils < Formula
   desc "CLI utilities for Claude Code"
   homepage "https://github.com/chasemp/claude-utils"
-  url "https://github.com/chasemp/claude-utils/releases/download/v0.2.0/claude-utils-0.2.0-release.tar.gz"
-  sha256 "3fdebb6925a2dab9e7a9d85b984fe64c323d169397783f2d0fa2e8d47ea243c7"
+  url "https://github.com/chasemp/claude-utils/releases/download/v0.3.0/claude-utils-0.3.0-release.tar.gz"
+  sha256 "4937245474c88bf57678903ee84bfa369baecf317aa95f8c9e4820a9444e9037"
   license "AGPL-3.0-only"
 
   depends_on "python@3.12"
@@ -20,6 +20,12 @@ class ClaudeUtils < Formula
     EOS
     chmod 0755, bin/"claude-sessions"
 
+    (bin/"claude-components").write <<~EOS
+      #!/bin/bash
+      exec "#{venv}/bin/claude-components" "$@"
+    EOS
+    chmod 0755, bin/"claude-components"
+
     (share/"claude-utils").install "shell/claude-utils.zsh"
   end
 
@@ -32,5 +38,6 @@ class ClaudeUtils < Formula
 
   test do
     system bin/"claude-sessions", "--help"
+    system bin/"claude-components", "--help"
   end
 end
